@@ -5,16 +5,45 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="../shared/header.jsp" %>
+<%@taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login Page</title>
         <link href="../../assets/css/style.css" rel="stylesheet" type="text/css"/>
         <link href="../../assets/css/foundation.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-
+        <div>
+            <table class="table table-striped table-hover table-bordered">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact No</th>
+                    <th>Employ Status</th>
+                    <th>Timing</th>
+                    <th>Message</th>
+                    <th>Status</th>
+                </tr>
+                <c:forEach var="enquiry" items="${requestScope.enquiries}">
+                    <tr>
+                        <td>${enquiry.id}</td>
+                        <td>${enquiry.firstName}</td>
+                        <td>${enquiry.lastName}</td>
+                        <td>${enquiry.email}</td>
+                        <td>${enquiry.contactNo}</td>
+                        <td>${enquiry.employStatus}</td>
+                        <td>${enquiry.timing}</td>
+                        <td>${enquiry.message}</td>
+                        <td>Edit Delete</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
 
         <style type="text/css">
             .form-signin {
@@ -58,5 +87,4 @@
 
         </form>
 
-    </body>
-</html>
+        <%@include file="../shared/footer.jsp" %>

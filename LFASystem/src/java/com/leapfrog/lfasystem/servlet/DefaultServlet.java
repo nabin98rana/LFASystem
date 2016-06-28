@@ -17,14 +17,14 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Navin
  */
-@WebServlet(name = "defaultController",urlPatterns = {"/default/*"})
+@WebServlet(name = "defaultController", urlPatterns = {"/default/*"})
 public class DefaultServlet extends Controller {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       
-        RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/courses/viewcourse.jsp");
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/courses/viewcourse.jsp");
         dispatcher.forward(request, response);
     }
-    
+
 }
