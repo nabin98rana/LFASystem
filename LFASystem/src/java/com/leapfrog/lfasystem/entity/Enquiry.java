@@ -6,15 +6,48 @@
 package com.leapfrog.lfasystem.entity;
 
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author Navin
  */
+@Entity
+@Table(name = "tbl_enquiries")
 public class Enquiry {
+
+    @Id
+    @Column(name = "enquiry_id")
     private int id;
-    private String firstName,lastName,email,contactNo,linkedin,message,timing,reference,employmentStatus;
-    private Date enquiryDate,remarkDate;
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name = "last_name")
+    private String lastName;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "contact_no")
+    private String contactNo;
+    @Column(name = "linkkedin")
+    private String linkedin;
+    @Column(name = "message")
+    private String message;
+    @Column(name = "timing")
+    private String timing;
+    @Column(name = "reference")
+    private String reference;
+    @Column(name = "employment_status")
+    private String employmentStatus;
+    @Column(name = "enquiry_date", insertable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date enquiryDate;
+    @Column(name = "remark_date", nullable = true)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date remarkDate;
 
     public Enquiry() {
     }
@@ -126,5 +159,5 @@ public class Enquiry {
     public void setRemarkDate(Date remarkDate) {
         this.remarkDate = remarkDate;
     }
-    
+
 }

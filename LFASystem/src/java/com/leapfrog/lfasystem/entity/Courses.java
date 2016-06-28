@@ -6,16 +6,42 @@
 package com.leapfrog.lfasystem.entity;
 
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author Navin
  */
-
+@Entity
+@Table(name = "tbl_courses")
 public class Courses {
-    private int id,courseFee,courseDuration;
-    private String courseCode,courseName,courseDescription,summary;
-    private Date addedDate,modifiedDate;
+
+    @Id
+    @Column(name = "course_id")
+    private int id;
+    @Column(name = "course_fee")
+    private int courseFee;
+    @Column(name = "course_duration")
+    private int courseDuration;
+    @Column(name = "course_code")
+    private String courseCode;
+    @Column(name = "course_name")
+    private String courseName;
+    @Column(name = "course_description")
+    private String courseDescription;
+    @Column(name = "summary")
+    private String summary;
+    @Column(name = "added_date", insertable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date addedDate;
+    @Column(name = "modified_date", nullable = true)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date modifiedDate;
 
     public Courses() {
     }
@@ -101,5 +127,5 @@ public class Courses {
     public void setModifiedDate(Date modifiedDate) {
         this.modifiedDate = modifiedDate;
     }
-    
+
 }
